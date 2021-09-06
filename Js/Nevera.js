@@ -1,12 +1,13 @@
+import { Electrodomestico } from "./Electrodomesticos.js";
 class Nevera extends Electrodomestico {
   constructor(consumo, procedencia, capacidad) {
     super(consumo, procedencia);
     this.capacidad = capacidad;
   }
-  get capacidad() {
+  get getCapacidad() {
     return this.capacidad;
   }
-  set capacidad(capacidad) {
+  set setCapacidad(capacidad) {
     this.capacidad = capacidad;
   }
 
@@ -29,3 +30,4 @@ class Nevera extends Electrodomestico {
     }
   }
 }
+export { Nevera };

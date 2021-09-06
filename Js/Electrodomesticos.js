@@ -4,17 +4,17 @@ class Electrodomestico {
     this.procedencia = procedencia;
   }
 
-  get consumo() {
+  get getConsumo() {
     return this.consumo;
   }
-  set consumo(consumo) {
+  set setConsumo(consumo) {
     this.consumo = consumo;
   }
-  set procedencia(procedencia) {
+  set setProcedencia(procedencia) {
     this.procedencia = procedencia;
   }
 
-  get procedencia() {
+  get getProcedencia() {
     return this.procedencia;
   }
 
@@ -32,29 +32,28 @@ class Electrodomestico {
   }
 
   calcularCostoSegunConsumo() {
-    const tipoConsumos = {
-      consumoA: consumoAFn,
-      consumoB: consumoBFn,
-      consumoC: consumoCFn,
-    };
-    if (tipoConsumos[this.consumo]) {
-      return tipoConsumos[this.consumo]();
-    } else {
-      return ningunConsumo();
+    switch (this.consumo) {
+      case "A":
+        return 450000;
+      case "B":
+        return 350000;
+      case "C":
+        return 250000;
     }
   }
 
   calcularCostoSegunProcedencia() {
-    if (this.procedencia == "Nacional") {
+    if (this.procedencia == "NACIONAL") {
       return 250000;
-    } else if (this.procedencia == "Importado") {
+    } else if (this.procedencia == "IMPORTADO") {
       return 350000;
-    } else {
-      return 1;
     }
   }
 
   calcularCostoTotal() {
-    return this.calcularCostoSegunConsumo + this.calcularCostoSegunProcedencia;
+    return (
+      this.calcularCostoSegunConsumo() + this.calcularCostoSegunProcedencia()
+    );
   }
 }
+export { Electrodomestico };
