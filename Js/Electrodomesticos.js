@@ -18,19 +18,6 @@ class Electrodomestico {
     return this.procedencia;
   }
 
-  consumoAFn() {
-    return 450000;
-  }
-  consumoBFn() {
-    return 350000;
-  }
-  consumoCFn() {
-    return 250000;
-  }
-  ningunConsumo() {
-    return -1;
-  }
-
   calcularCostoSegunConsumo() {
     switch (this.consumo) {
       case "A":
