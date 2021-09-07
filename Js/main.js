@@ -49,10 +49,10 @@ while (!salir) {
     case "3":
       let miTv;
       const consumo3 = prompt(
-        "Ingresa el consumo del Nevera (A-B-C)"
+        "Ingresa el consumo del Televisor (A-B-C)"
       ).toUpperCase();
       const procedencia3 = prompt(
-        "Ingresa la procendencia de la nevera (Nacional - Importado) "
+        "Ingresa la procendencia del televisor (Nacional - Importado) "
       ).toUpperCase();
       const numPulgadas = parseInt(
         prompt("Ingrese el numero de pulgadas del televisor")
@@ -62,10 +62,10 @@ while (!salir) {
         '¿El televisor tiene TDT? por favor ingrese "Si" o "No"'
       );
 
-      if (tieneTDT == "Si") {
-        miTv = new Televisor(consumo3, procedencia3, numPulgadas, true);
+      if (tieneTDT.toUpperCase() == "SI") {
+        miTv = new Televisor(consumo3, procedencia3, numPulgadas, "SI");
       } else {
-        miTv = new Televisor(consumo3, procedencia3, numPulgadas, false);
+        miTv = new Televisor(consumo3, procedencia3, numPulgadas, "NO");
       }
       misTelevisores.push(miTv);
       console.log("Se agrego correctamente");
@@ -99,15 +99,15 @@ while (!salir) {
         }
       } else if (tipoProducto == "TELEVISOR") {
         if (cantidad <= misTelevisores.length) {
-          for (const iterator of misTelevisores) {
+          for (let iterator = 0; iterator < misTelevisores.length; iterator++) {
             if (
-              iterator.consumo == tipoConsumo &&
-              iterator.procedencia == nacion
+              misTelevisores[iterator].consumo == tipoConsumo &&
+              misTelevisores[iterator].procedencia == nacion
             ) {
-              factura.push(misNeveras[iterator]);
+              factura.push(misTelevisores[iterator]);
               misTelevisores = arrayRemove(
                 misTelevisores,
-                misNeveras[iterator]
+                misTelevisores[iterator]
               );
             }
           }

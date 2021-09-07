@@ -12,18 +12,17 @@ class Nevera extends Electrodomestico {
   }
 
   cantidadLitrosExtras() {
-    capTemp = 0;
+    let capTemp = 0;
     if (this.capacidad > 120) {
       capTemp = (this.capacidad - 120) / 10;
     }
     return capTemp;
   }
-
   calcularCostoTotal() {
     if (this.cantidadLitrosExtras() > 0) {
-      porcentaje = this.cantidadLitrosExtras() * 0.05;
+      let porcentaje = this.cantidadLitrosExtras() * 0.05;
       return (
-        super.calcularCostoTotal() + super.calcularCostoTotal() * porcentaje
+        super.calcularCostoTotal() * porcentaje + super.calcularCostoTotal()
       );
     } else {
       return super.calcularCostoTotal();
